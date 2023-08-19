@@ -1,9 +1,9 @@
-from typing import List
+from typing import List, Dict, Tuple
 
 
 class Solution:
     def three_sum(self, nums: List[int]) -> List[List[int]]:
-        intermediate = {}
+        intermediate: Dict[Tuple[int, int], int] = {}
         result: List[List[int]] = []
 
         for x in range(len(nums)):
@@ -39,11 +39,11 @@ class Solution:
             right = len(nums) - 1
 
             while left < right:
-                sum = nums[i] + nums[left] + nums[right]
+                summation = nums[i] + nums[left] + nums[right]
 
-                if sum < 0:
+                if summation < 0:
                     left += 1
-                elif sum > 0:
+                elif summation > 0:
                     right -= 1
                 else:
                     res = [nums[i], nums[left], nums[right]]
@@ -55,8 +55,7 @@ class Solution:
 
 solution = Solution()
 arr = [-1, 0, 1, 2, -1, -4]
-s = solution.three_sum_2(arr)
-print("\n\n")
+s = solution.three_sum(arr)
 print(s)
 # Output: [[-1,-1,2],[-1,0,1]]
 
