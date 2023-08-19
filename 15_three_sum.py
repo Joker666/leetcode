@@ -1,4 +1,4 @@
-from typing import List, Dict, Tuple
+from typing import Dict, List, Tuple
 
 
 class Solution:
@@ -35,6 +35,9 @@ class Solution:
         result: List[List[int]] = []
 
         for i in range(len(nums)):
+            if i > 0 and nums[i] == nums[i - 1]:
+                continue
+
             left = i + 1
             right = len(nums) - 1
 
@@ -50,12 +53,15 @@ class Solution:
                     result.append(res)
                     left += 1
 
+                    if nums[left] == nums[left - 1] and left < right:
+                        left += 1
+
         return result
 
 
 solution = Solution()
-arr = [-1, 0, 1, 2, -1, -4]
-s = solution.three_sum(arr)
+arr = [-4, -2, -2, -2, 0, 1, 2, 2, 2, 3, 3, 4, 4, 6, 6]
+s = solution.three_sum_2(arr)
 print(s)
 # Output: [[-1,-1,2],[-1,0,1]]
 
