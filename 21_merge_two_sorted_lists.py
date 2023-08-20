@@ -7,10 +7,28 @@ class ListNode:
         self.next = next
 
 
-def push(head_ref: Optional[ListNode], new_data: int):
+def push(head_ref: Optional[ListNode], new_data: int) -> ListNode:
     new_node = ListNode(new_data)
     new_node.next = head_ref
     return new_node
+
+
+def append(head_ref: Optional[ListNode], new_data: int) -> ListNode:
+    new_node = ListNode(new_data)
+
+    if head_ref is None:
+        head_ref = new_node
+        return head_ref
+
+    head = head_ref
+    while head:
+        if head.next is None:
+            head.next = new_node
+            break
+        head = head.next
+
+    return head_ref
+
 
 class Solution:
     def merge_two_lists(
@@ -28,11 +46,11 @@ class Solution:
             arr.append(head.val)
             head = head.next
 
-        arr.sort(reverse=True)
+        arr.sort()
 
         head = None
         for x in arr:
-            head = push(head, x)
+            head = append(head, x)
 
         return head
 
