@@ -72,3 +72,6 @@ l2.next = ListNode(3)
 l2.next.next = ListNode(4)
 res = solution.merge_two_lists(list1=l1, list2=l2)
 solution.list_print(res)
+
+# The first intuition was to convert the linked lists into an array and then sort the array.
+# The creating a linked list from the array. This solution works, except it is not optimal.
