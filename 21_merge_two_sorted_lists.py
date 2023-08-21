@@ -97,30 +97,25 @@ class Solution:
         if list2 is None:
             return list1
 
-        result = None
+        dummy = ListNode()
+        result = dummy
+
         while list1 and list2:
-            if list1.val <= list2.val:
-                result = append(result, list1.val)
+            if list1.val < list2.val:
+                result.next = list1
                 list1 = list1.next
-
-            if list1 is None:
-                result = append(result, list2.val)
-                list2 = list2.next
-                continue
-
-            if list1.val >= list2.val:
-                result = append(result, list2.val)
+            else:
+                result.next = list2
                 list2 = list2.next
 
-        while list1:
-            result = append(result, list1.val)
-            list1 = list1.next
+            result = result.next
 
-        while list2:
-            result = append(result, list2.val)
-            list2 = list2.next
+        if list1:
+            result.next = list1
+        elif list2:
+            result.next = list2
 
-        return result
+        return dummy.next
     
     def list_print(self, linked_list: Optional[ListNode]):
         head = linked_list
@@ -138,7 +133,7 @@ l1.next.next = ListNode(7)
 l2 = ListNode(5)
 l2.next = ListNode(7)
 l2.next.next = ListNode(8)
-res = solution.merge_two_lists_2(list1=l1, list2=l2)
+res = solution.merge_two_lists_3(list1=l1, list2=l2)
 solution.list_print(res)
 
 # The first intuition was to convert the linked lists into an array and then sort the array.
@@ -150,3 +145,5 @@ solution.list_print(res)
 
 # Then third intuition came from looking at YouTube that we can run one loop as long as both lists
 # have value! Damn! Should have thought about it.
+
+# Also I was using append and push because simple linking was not working. Turns out linking does work.
