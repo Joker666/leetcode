@@ -77,6 +77,10 @@ class Solution:
                     result = append(result, list2.val)
                     list2 = list2.next
 
+            if list2 is None:
+                result = append(result, list1.val)
+                list1 = list1.next
+
         return result
     
     def list_print(self, linked_list: Optional[ListNode]):
@@ -88,12 +92,12 @@ class Solution:
 
 solution = Solution()
 
-l1 = ListNode(2)
-l1.next = ListNode(6)
+l1 = ListNode(-9)
+l1.next = ListNode(3)
 l1.next.next = ListNode(7)
 
-l2 = ListNode(4)
-l2.next = ListNode(5)
+l2 = ListNode(5)
+l2.next = ListNode(7)
 l2.next.next = ListNode(8)
 res = solution.merge_two_lists_2(list1=l1, list2=l2)
 solution.list_print(res)
