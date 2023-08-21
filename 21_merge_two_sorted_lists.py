@@ -88,6 +88,39 @@ class Solution:
                 list1 = list1.next
 
         return result
+
+    def merge_two_lists_3(
+            self, list1: Optional[ListNode], list2: Optional[ListNode]
+    ) -> Optional[ListNode]:
+        if list1 is None:
+            return list2
+        if list2 is None:
+            return list1
+
+        result = None
+        while list1 and list2:
+            if list1.val <= list2.val:
+                result = append(result, list1.val)
+                list1 = list1.next
+
+            if list1 is None:
+                result = append(result, list2.val)
+                list2 = list2.next
+                continue
+
+            if list1.val >= list2.val:
+                result = append(result, list2.val)
+                list2 = list2.next
+
+        while list1:
+            result = append(result, list1.val)
+            list1 = list1.next
+
+        while list2:
+            result = append(result, list2.val)
+            list2 = list2.next
+
+        return result
     
     def list_print(self, linked_list: Optional[ListNode]):
         head = linked_list
@@ -110,3 +143,10 @@ solution.list_print(res)
 
 # The first intuition was to convert the linked lists into an array and then sort the array.
 # The creating a linked list from the array. This solution works, except it is not optimal.
+
+# It cracked on me that the input lists are sorted which I didn't get first.
+# So, second intuition was going through two linked lists in nested loop and inserting items based
+# on whatever list had the smaller one and advancing that list
+
+# Then third intuition came from looking at YouTube that we can run one loop as long as both lists
+# have value! Damn! Should have thought about it.
