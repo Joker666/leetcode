@@ -65,19 +65,25 @@ class Solution:
         result = None
         while list1:
             while list2:
+                if list1 is None:
+                    result = append(result, list2.val)
+                    list2 = list2.next
+                    continue
+
                 if list1.val <= list2.val:
                     result = append(result, list1.val)
                     list1 = list1.next
 
                 if list1 is None:
                     result = append(result, list2.val)
-                    break
+                    list2 = list2.next
+                    continue
 
                 if list1.val >= list2.val:
                     result = append(result, list2.val)
                     list2 = list2.next
 
-            if list2 is None:
+            if list2 is None and list1:
                 result = append(result, list1.val)
                 list1 = list1.next
 
