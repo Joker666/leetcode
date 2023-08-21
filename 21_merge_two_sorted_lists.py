@@ -54,6 +54,31 @@ class Solution:
 
         return head
 
+    def merge_two_lists_2(
+        self, list1: Optional[ListNode], list2: Optional[ListNode]
+    ) -> Optional[ListNode]:
+        if list1 is None:
+            return list2
+        if list2 is None:
+            return list1
+
+        result = None
+        while list1:
+            while list2:
+                if list1.val <= list2.val:
+                    result = append(result, list1.val)
+                    list1 = list1.next
+
+                if list1 is None:
+                    result = append(result, list2.val)
+                    break
+
+                if list1.val >= list2.val:
+                    result = append(result, list2.val)
+                    list2 = list2.next
+
+        return result
+    
     def list_print(self, linked_list: Optional[ListNode]):
         head = linked_list
         while head:
@@ -63,14 +88,14 @@ class Solution:
 
 solution = Solution()
 
-l1 = ListNode(1)
-l1.next = ListNode(2)
-l1.next.next = ListNode(3)
+l1 = ListNode(2)
+l1.next = ListNode(6)
+l1.next.next = ListNode(7)
 
-l2 = ListNode(2)
-l2.next = ListNode(3)
-l2.next.next = ListNode(4)
-res = solution.merge_two_lists(list1=l1, list2=l2)
+l2 = ListNode(4)
+l2.next = ListNode(5)
+l2.next.next = ListNode(8)
+res = solution.merge_two_lists_2(list1=l1, list2=l2)
 solution.list_print(res)
 
 # The first intuition was to convert the linked lists into an array and then sort the array.
