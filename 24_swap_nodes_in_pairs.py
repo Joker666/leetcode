@@ -29,7 +29,7 @@ class Solution:
 
 solution = Solution()
 
-# # Example 1:
+# Example 1:
 l1 = ListNode(1)
 l1.next = ListNode(2)
 l1.next.next = ListNode(3)
@@ -51,7 +51,7 @@ l2.next = ListNode(2)
 res2 = solution.swap_pairs(l2)
 solution.list_print(res2)
 
-# # Example 3:
+# Example 3:
 l3 = None
 
 # Before swap: None
@@ -64,4 +64,8 @@ solution.list_print(res3)
 # This I could not solve without help. My first intuition was swapping the head and head->next.
 # I stored the head in temp and tried to put it in head->next, but it created an infinite linked list.
 
-#
+# The intuition here is, to swap first and second node, we need to make the second node head.
+# Where does the first node go? We need to make the first node tail to the second node *before*
+# second node becomes head. So when second node becomes head, the linked list kind of advanced and
+# first node is now second node. Swapped! And before we do all of this, we hold the third node in a temp
+# variable and recursively call the swap functions and add the result back as the third node.
