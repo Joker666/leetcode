@@ -16,7 +16,7 @@ class Solution:
 
 solution = Solution()
 # s = "ababba" # False
-s = "babbabbabbabbab" # True
+s = "babbabbabbabbab"  # True
 # s = "ababab" # True
 # s = "abaababaab"  # True
 # s = "bb"  # True
@@ -34,5 +34,5 @@ print(solution.repeated_substring_pattern(s))
 # I used string replace which was slower, but it got accepted.
 
 # It was a terrible solution and I had to look up editorial to find out that all substrings length will
-# be divisor of the full length,and you can skip the other ones. Also, there's no need to replace all
+# be divisor of the full length, and you can skip the other ones. Also, there's no need to replace all
 # substrings, you can make the full string as you know the divisor number.
