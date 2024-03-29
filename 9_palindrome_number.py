@@ -39,4 +39,4 @@ print(s)
 
 # I actually made a string and reversed it to get it right.
 # Then I learned this pattern that you can reverse a number by taking remainders
-# And then diving it.
+# and then diving it.
