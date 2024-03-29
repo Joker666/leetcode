@@ -16,15 +16,15 @@ class Solution:
             return False
 
         num = x
-        rev = 0
+        reversed_num = 0
 
         while num != 0:
             digit = num % 10
-            rev = rev * 10 + digit
+            reversed_num = reversed_num * 10 + digit
 
             num = num // 10
 
-        return x == rev
+        return x == reversed_num
 
     def reverse(self, text: List[str], left: int, right: int):
         if left > right:
@@ -37,6 +37,6 @@ solution = Solution()
 s = solution.is_palindrome_2(121)
 print(s)
 
-# I actually made a string and reversed it to get it right
+# I actually made a string and reversed it to get it right.
 # Then I learned this pattern that you can reverse a number by taking remainders
 # And then diving it.
