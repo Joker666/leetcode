@@ -8,13 +8,14 @@ class Solution:
             if nums[i] in nums_dict:
                 return [nums_dict[nums[i]], i]
             else:
-                nums_dict[target - nums[i]] = i
+                diff = target - nums[i]
+                nums_dict[diff] = i
 
 
 solution = Solution()
 s = solution.two_sum([2, 7, 11, 15], 22)
 print(s)
 
-# Initially I did it in two loops
-# What I found intuitive was that I had the idea of diffing but didn't tackle that
-# Ultimately the diff and extra memory solves the problem
+# Initially I did it in two loops.
+# What I found intuitive was that I had the idea of diffing but didn't tackle that.
+# Ultimately the diff and extra memory solves the problem.
