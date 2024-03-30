@@ -71,7 +71,7 @@ print(s)
 # then computing the third index from that.
 # Since it was open to the duplicate triplet issue, I sorted the triplet list and
 # checked if it already exists in the final list or not.
-# It worked, but it failed in "Time limit exceeded" for such a poor solution
+# It worked, but it failed in "Time limit exceeded" for such a poor solution.
 
 # The second intuition was to use set and two sum to calculate, but I did not pursue
 # that. I have solved that in 2021 with some help maybe.
