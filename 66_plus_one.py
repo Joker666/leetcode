@@ -22,6 +22,7 @@ class Solution:
         return return_digits
 
     def plus_one_2(self, digit: List[int]) -> List[int]:
+        # Loop through digits in reverse order
         for i in range(len(digit) - 1, -1, -1):
             if digit[i] == 9:
                 digit[i] = 0
@@ -38,6 +39,6 @@ solution = Solution()
 s = solution.plus_one_2([9, 9, 9, 9])
 print(s)
 
-# I took the basic approach first to find the number from the array and add 1 and generating result array
-# A smarter solution is just incrementing the last digit and handling if there's 9
-# The only time it will fail if there's all 9s and that case can be handled as well
+# I took the basic approach first to find the number from the array and add 1 and generating result array.
+# A smarter solution is just incrementing the last digit and handling if there's a 9.
+# The only time it will fail if there's all 9s and that case can be handled as well.
