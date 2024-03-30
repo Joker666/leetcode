@@ -31,9 +31,7 @@ def append(head_ref: Optional[ListNode], new_data: int) -> ListNode:
 
 
 class Solution:
-    def merge_two_lists(
-        self, list1: Optional[ListNode], list2: Optional[ListNode]
-    ) -> Optional[ListNode]:
+    def merge_two_lists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
         arr = []
 
         head = list1
@@ -54,9 +52,7 @@ class Solution:
 
         return head
 
-    def merge_two_lists_2(
-        self, list1: Optional[ListNode], list2: Optional[ListNode]
-    ) -> Optional[ListNode]:
+    def merge_two_lists_2(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
         if list1 is None:
             return list2
         if list2 is None:
@@ -89,34 +85,31 @@ class Solution:
 
         return result
 
-    def merge_two_lists_3(
-            self, list1: Optional[ListNode], list2: Optional[ListNode]
-    ) -> Optional[ListNode]:
+    def merge_two_lists_3(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
         if list1 is None:
             return list2
         if list2 is None:
             return list1
 
-        dummy = ListNode()
-        result = dummy
+        dummy = curr = ListNode()
 
         while list1 and list2:
             if list1.val < list2.val:
-                result.next = list1
+                curr.next = list1
                 list1 = list1.next
             else:
-                result.next = list2
+                curr.next = list2
                 list2 = list2.next
 
-            result = result.next
+            curr = curr.next
 
         if list1:
-            result.next = list1
+            curr.next = list1
         elif list2:
-            result.next = list2
+            curr.next = list2
 
         return dummy.next
-    
+
     def list_print(self, linked_list: Optional[ListNode]):
         head = linked_list
         while head:
@@ -147,3 +140,8 @@ solution.list_print(res)
 # have value! Damn! Should have thought about it.
 
 # Also I was using append and push because simple linking was not working. Turns out linking does work.
+
+# At the end of the loop, curr will point to the last node in the merged list.
+# However, since dummy was never updated after it was initialized, it still points to the first node in the merged list.
+# This is why we return dummy.next instead of curr.next -
+# because dummy.next points to the first node in the merged list, while curr.next points to the last node.
