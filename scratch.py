@@ -1,4 +1,4 @@
-from typing import Dict
+from typing import Dict, List, Optional
 
 
 def repeated_substring_pattern(s: str) -> bool:
