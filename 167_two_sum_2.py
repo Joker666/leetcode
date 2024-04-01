@@ -6,26 +6,18 @@ class Solution:
         left = 0
         right = len(numbers) - 1
 
-        while numbers[left] <= numbers[right]:
-            if numbers[left] + numbers[right] == target:
-                # If the numbers at the current left and right indices sum to the target,
-                # we have found our answer so return the indices + 1
+        while left < right:
+            summation = numbers[left] + numbers[right]
+            if summation == target:
                 return [left + 1, right + 1]
 
-            if numbers[right] > target:
-                # If the number at the current right index is greater than the target,
-                # we need to decrement right to move to a smaller number
-                right -= 1
-
-            if numbers[left] + numbers[right] < target:
-                # If the sum of the numbers at the current left and right indices is less than the target,
-                # we need to increment left to move to a larger number
-                left += 1
-
-            if numbers[left] + numbers[right] > target:
+            if summation > target:
                 # If the sum of the numbers at the current left and right indices is greater than the target,
                 # we need to decrement right to move to a smaller number
                 right -= 1
+            else:
+                # we need to increment left to move to a larger number
+                left += 1
 
         return []
 
