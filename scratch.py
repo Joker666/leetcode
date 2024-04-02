@@ -1,14 +1,34 @@
-from typing import Dict, List, Optional
+from typing import List
 
 
-def repeated_substring_pattern(s: str) -> bool:
-    for i in range(len(s) // 2):
-        substring = s[0:i + 1]
-        full_string = substring * (len(s) // (i+1))
-        if full_string == s:
-            return True
+def three_sum(nums: List[int]) -> List[List[int]]:
+    nums.sort()
+    print(nums)
 
-    return False
+    triplets: List[List[int]] = []
+
+    nums_len = len(nums)
+
+    for i in range(nums_len):
+        if i > 0 and nums[i] == nums[i - 1]:
+            continue
+
+        left = i + 1
+        right = nums_len - 1
+
+        while left < right:
+            summation = nums[i] + nums[left] + nums[right]
+            if summation == 0:
+                triplets.append([nums[i], nums[left], nums[right]])
+                left += 1
+                while left < right and nums[left] == nums[left - 1]:
+                    left += 1
+            elif summation < 0:
+                left += 1
+            else:
+                right -= 1
+
+    return triplets
 
 
-print(repeated_substring_pattern("ababba"))
+print(three_sum([-1, 0, 1, 2, -1, -4, -2, -3, 3, 0, 4]))
