@@ -43,7 +43,9 @@ class Solution:
     def list_print(self, linked_list: Optional[ListNode]):
         head = linked_list
         while head:
-            print(head.val, end=" ")
+            print(head.val, end='')
+            if head.next:
+                print(" -> ", end='')
             head = head.next
         print("\n")
 
@@ -80,7 +82,6 @@ l3 = None
 
 res3 = solution.swap_pairs(l3)
 solution.list_print(res3)
-
 
 # This I could not solve without help. My first intuition was swapping the head and head->next.
 # I stored the head in temp and tried to put it in head->next, but it created an infinite linked list.
