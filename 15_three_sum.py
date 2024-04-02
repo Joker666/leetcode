@@ -32,9 +32,11 @@ class Solution:
 
     def three_sum_2(self, nums: List[int]) -> List[List[int]]:
         nums.sort()
-        result: List[List[int]] = []
+        triplets: List[List[int]] = []
 
         for i in range(len(nums)):
+
+            # handle duplicate triplets by ignoring the same number as the last one
             if i > 0 and nums[i] == nums[i - 1]:
                 continue
 
@@ -49,14 +51,14 @@ class Solution:
                 elif summation > 0:
                     right -= 1
                 else:
-                    res = [nums[i], nums[left], nums[right]]
-                    result.append(res)
+                    triplets.append([nums[i], nums[left], nums[right]])
                     left += 1
 
+                    # handle duplicate triplets by moving the left forward
                     while nums[left] == nums[left - 1] and left < right:
                         left += 1
 
-        return result
+        return triplets
 
 
 solution = Solution()
@@ -74,7 +76,7 @@ print(s)
 # It worked, but it failed in "Time limit exceeded" for such a poor solution.
 
 # The second intuition was to use set and two sum to calculate, but I did not pursue
-# that. I have solved that in 2021 with some help maybe.
+# that. I have solved that in 2021 with some help, maybe.
 
 # The third intuition I had was using two pointers, but I forgot how to go about that.
 # Using one loop to go from left to right and then a nested one with two pointers
