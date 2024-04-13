@@ -113,8 +113,11 @@ class Solution:
     def list_print(self, linked_list: Optional[ListNode]):
         head = linked_list
         while head:
-            print(head.val)
+            print(head.val, end='')
+            if head.next:
+                print(" -> ", end='')
             head = head.next
+        print("\n")
 
 
 solution = Solution()
