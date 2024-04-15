@@ -24,10 +24,8 @@ class Solution:
         return f_list
 
     def preorder_traversal_2(self, root: Optional[TreeNode]) -> List[int]:
-        stack = []
+        stack = [root]
         visited = []
-
-        stack.append(root)
 
         while len(stack) != 0:
             popped = stack.pop()
