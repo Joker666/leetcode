@@ -14,15 +14,12 @@ class Solution:
         return self.traverse(root, [])
 
     def traverse(self, node: Optional[TreeNode], f_list: List[int]) -> List[int]:
-        if node:
-            f_list.append(node.val)
-        else:
+        if not node:
             return f_list
 
-        if node.left:
-            self.traverse(node.left, f_list)
-        if node.right:
-            self.traverse(node.right, f_list)
+        f_list.append(node.val)
+        self.traverse(node.left, f_list)
+        self.traverse(node.right, f_list)
 
         return f_list
 

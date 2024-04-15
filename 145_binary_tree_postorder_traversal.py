@@ -17,11 +17,8 @@ class Solution:
         if not node:
             return f_list
 
-        if node.left:
-            self.traverse(node.left, f_list)
-        if node.right:
-            self.traverse(node.right, f_list)
-
+        self.traverse(node.left, f_list)
+        self.traverse(node.right, f_list)
         f_list.append(node.val)
 
         return f_list
