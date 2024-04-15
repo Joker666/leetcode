@@ -23,6 +23,23 @@ class Solution:
 
         return f_list
 
+    def preorder_traversal_2(self, root: Optional[TreeNode]) -> List[int]:
+        stack = []
+        visited = []
+
+        stack.append(root)
+
+        while len(stack) != 0:
+            popped = stack.pop()
+            visited.append(popped.val)
+
+            if popped.right is not None:
+                stack.append(popped.right)
+            if popped.left is not None:
+                stack.append(popped.left)
+
+        return visited
+
 
 solution = Solution()
 
@@ -41,5 +58,5 @@ right_right = TreeNode(5)
 right.right = right_right
 
 
-s = solution.preorder_traversal(root)
+s = solution.preorder_traversal_2(root)
 print(s)
