@@ -28,13 +28,13 @@ class Solution:
         visited = []
 
         while len(stack) != 0:
-            popped = stack.pop()
-            visited.append(popped.val)
+            current = stack.pop()
+            visited.append(current.val)
 
-            if popped.right is not None:
-                stack.append(popped.right)
-            if popped.left is not None:
-                stack.append(popped.left)
+            if current.right is not None:
+                stack.append(current.right)
+            if current.left is not None:
+                stack.append(current.left)
 
         return visited
 
