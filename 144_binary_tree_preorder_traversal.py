@@ -55,6 +55,10 @@ left.right = TreeNode(6)
 right_right = TreeNode(5)
 right.right = right_right
 
-
 s = solution.preorder_traversal_2(root)
 print(s)
+
+# In the stack-based approach, the right node is inserted first and then the left node.
+# The intuition behind this is that the left node will be popped first in the next iteration
+# since we are pushing into a stack which is LIFO(Last in First out).
+# And for going into the depth, we need the left node first.
