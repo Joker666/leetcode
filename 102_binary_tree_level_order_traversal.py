@@ -11,8 +11,12 @@ class TreeNode:
 
 class Solution:
     def level_order_traversal(self, root: Optional[TreeNode]) -> List[List[int]]:
-        queue = [root]
         visited = []
+
+        if root is None:
+            return visited
+
+        queue = [root]
 
         while len(queue) != 0:
             len_q = len(queue)
