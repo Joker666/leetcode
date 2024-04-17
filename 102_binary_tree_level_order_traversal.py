@@ -10,19 +10,24 @@ class TreeNode:
 
 
 class Solution:
-    def level_order_traversal(self, root: Optional[TreeNode]) -> List[int]:
+    def level_order_traversal(self, root: Optional[TreeNode]) -> List[List[int]]:
         queue = [root]
         visited = []
 
         while len(queue) != 0:
-            current = queue.pop(0)
-            visited.append(current.val)
+            len_q = len(queue)
 
-            if current.left is not None:
-                queue.append(current.left)
-            if current.right is not None:
-                queue.append(current.right)
+            level = []
+            for i in range(len_q):
+                current = queue.pop(0)
+                level.append(current.val)
 
+                if current.left is not None:
+                    queue.append(current.left)
+                if current.right is not None:
+                    queue.append(current.right)
+
+            visited.append(level)
         return visited
 
 
