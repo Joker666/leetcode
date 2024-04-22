@@ -59,3 +59,7 @@ print(s)
 # since we are pushing into a queue which is FIFO(First in First out).
 # We don't necessarily need to do this for BFS, since we are doing level order traversal, but
 # it's nice to move from left to right.
+
+# However, for pushing one level at a time, a simple queue will not work; we need to keep track of levels.
+# I couldn't solve this until I got some clue from ChatGPT.
+# The idea is the length of the queue is the number of nodes for that level.
