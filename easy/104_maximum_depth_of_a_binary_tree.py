@@ -21,9 +21,9 @@ class Solution:
 
     def print_tree(self, node: Optional[TreeNode], level=0):
         if node is not None:
-            self.print_tree(node.left, level + 1)
-            print(' ' * 4 * level + '-> ' + str(node.val))
             self.print_tree(node.right, level + 1)
+            print(' ' * 4 * level + '-> ' + str(node.val))
+            self.print_tree(node.left, level + 1)
 
 
 
