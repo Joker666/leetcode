@@ -11,14 +11,11 @@ class TreeNode:
 
 class Solution:
     def max_depth(self, root: Optional[TreeNode]) -> int:
-        return self.traverse(root, 0)
-
-    def traverse(self, root: Optional[TreeNode], depth: int) -> int:
         if root is None:
-            return depth
+            return 0
 
-        left_subtree_depth = self.traverse(root.left, depth)
-        right_subtree_depth = self.traverse(root.right, depth)
+        left_subtree_depth = self.max_depth(root.left)
+        right_subtree_depth = self.max_depth(root.right)
 
         return max(left_subtree_depth, right_subtree_depth) + 1
 
