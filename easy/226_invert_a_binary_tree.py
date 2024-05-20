@@ -13,11 +13,11 @@ class Solution:
         if root is None:
             return root
 
-        l = self.invert_tree(root.left)
-        r = self.invert_tree(root.right)
+        left = self.invert_tree(root.left)
+        right = self.invert_tree(root.right)
 
-        root.left = r
-        root.right = l
+        root.left = right
+        root.right = left
 
         return root
 

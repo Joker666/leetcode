@@ -3,7 +3,8 @@ from typing import Dict
 
 class Solution:
     def is_anagram(self, s: str, t: str) -> bool:
-        if len(s) != len(t): return False
+        if len(s) != len(t):
+            return False
 
         hashmap: Dict[str, int] = {}
 
