@@ -6,7 +6,7 @@ class MinHeap:
         self.heap = self.build(arr)
 
     def get_left_child(self, index: int) -> int:
-        return (index * 2)
+        return index * 2
 
     def get_right_child(self, index: int) -> int:
         return (index * 2) + 1
@@ -40,6 +40,19 @@ class MinHeap:
             last_index = parent_index
 
         return arr
+
+    def insert(self, n: int):
+        """
+        Inserts a new element into the heap.
+
+        Args:
+            n (int): The element to be inserted into the heap.
+
+        This function inserts a new element into the heap. It first appends the new element to the end of the heap
+        array, and then calls the `build` function to convert the array into a heap.
+        """
+        self.heap.append(n)
+        self.build(self.heap)
 
 
 if __name__ == "__main__":
